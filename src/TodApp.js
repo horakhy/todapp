@@ -36,8 +36,7 @@ const taskFinished = (e, id) => {
     // copying the array into a new variable
     const newTaskList = [...tasklist];
 
-    
-
+    console.log("Testing...");
     // edit (cross out) the text
     newTaskList[item] = {
         ...newTaskList[item], isCompleted:true
