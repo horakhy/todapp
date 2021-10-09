@@ -2,18 +2,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body{
+    width: 95%;
+    max-width: 800px;
+    margin: auto;
     background-image: linear-gradient(120deg, #2193b0  0%, #6dd5ed 100%);
     color: white;
-    font-family: "Poppins", sans-serif;
+    font-family: "sans-serif", sans-serif;
     min-height: 100vh;
+}
+
+
+main{
+    background: #00000054;
+    align-items: center;
+    padding: 5px 40px 100% 40px;
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
 h1{
     text-align: center;
     margin-top: 30px;
+    font-style: italic;
 }
 
 .crossedText{
@@ -47,11 +61,11 @@ button{
 button:hover{
     opacity: 1;
 }
-button:focus{
+
+button:active{
     background-color: yellow;
     
 }
-
 
 .add-btn{
     background: none repeat scroll 0 0 #66A3D2;

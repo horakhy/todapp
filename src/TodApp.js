@@ -67,7 +67,7 @@ function TodApp() {
     //console.log("tasklist", tasklist)
     return (
         <div className="todo">
-            <input type="text" name="text" id="text"
+            <input type="text" name="text" id="text" required
                 onChange={(e) => changeHandler(e)} placeholder="Add task" />
 
             <button className="add-btn" onClick={addTask}>Add</button>

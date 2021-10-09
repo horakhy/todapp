@@ -9,8 +9,11 @@ function App() {
       <header>
         <h1>TodApp</h1>
       </header>
-      
-      <TodApp/>
+      <div className="background">
+        <main>
+          <TodApp />
+        </main>
+      </div>
     </div>
   );
 }
