@@ -16,8 +16,66 @@ h1{
     margin-top: 30px;
 }
 
-.crossedText {
-    color: rebeccapurple;
+.crossedText{
+    text-decoration: line-through black;
 }
+
+.todo{
+    margin-top: 25px;
+    text-align: center;
+}
+
+button{
+    font-size: 18px;
+    margin-left: 10px;
+    min-width: 70px;
+    opacity: 0.85;
+    background: none repeat scroll 0 0 #66A3D2;
+    border-color: #FFFFFF #24557b #327CB5 #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 3px #333333;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+button:hover{
+    opacity: 1;
+}
+button:focus{
+    background-color: yellow;
+    
+}
+
+
+.add-btn{
+    background: none repeat scroll 0 0 #66A3D2;
+}
+
+.finished{
+    background: none repeat scroll 0 0 #08e41a;
+    border-color: #FFFFFF #ffffff #21b32d #FFFFFF;
+}
+
+.delete{
+    background: none repeat scroll 0 0 #e6002a;
+    border-color: #FFFFFF #ffffff #b10b2a #FFFFFF;
+}
+
+input{
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+ul li{
+    margin: 10px;
+  }
+
+
 
 
