@@ -31,7 +31,8 @@ h1{
 }
 
 .crossedText{
-    text-decoration: line-through black;
+    color: rgba(255, 0, 0, 0.624);
+    text-decoration: line-through rgba(255, 0, 0, 0.624);
 }
 
 .todo{
@@ -89,7 +90,5 @@ input{
 ul li{
     margin: 10px;
   }
-
-
 
 
