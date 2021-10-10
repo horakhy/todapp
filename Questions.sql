@@ -4,14 +4,27 @@
    JOIN ALUNO ON (ALUNO_TURMA.aluno_id = ALUNO.id) WHERE PROFESSOR.nome LIKE "JOAO PEDRO";
 
 2. Buscar os dias da semana que tenham aulas da disciplina 'MATEMATICA'.
-->  SELECT DISTINCT TURMA.dia_da_semana FROM TURMA JOIN DISCIPLINA
- ON TURMA.disciplina_id = DISCIPLINA.id WHERE DISCIPLINA.nome = 'MATEMATICA'
+->  SELECT DISTINCT TURMA.dia_da_semana FROM TURMA 
+JOIN DISCIPLINA ON TURMA.disciplina_id = DISCIPLINA.id
+WHERE DISCIPLINA.nome = 'MATEMATICA'
 
 3. Buscar todos os alunos que frequentem aulas de 'MATEMATICA' e também 'FISICA'.
--> Select * FROM alunos outer join
+-> SELECT DISTINCT ALUNO.Nome FROM TURMA 
+JOIN ALUNO_TURMA ON (TURMA.id = ALUNO_TURMA.turma_id) 
+JOIN ALUNO ON (ALUNO_TURMA.aluno_id = ALUNO.id) 
+JOIN DISCIPLINA ON (TURMA.id = DISCIPLINA.id) WHERE DISCIPLINA.nome = "MATEMATICA" OR DISCIPLINA.nome = "FISICA";
 
 4. Buscar as disciplinas que não tenham nenhuma turma.
 -> SELECT DISCIPLINA.nome FROM TURMA RIGHT JOIN DISCIPLINA ON TURMA.disciplina_id = DISCIPLINA.id WHERE TURMA.disciplina_id = NULL;
 
 5. Buscar os alunos que frequentem aulas de 'MATEMATICA' exceto os que frequentem 'QUIMICA'.
-->
+-> SELECT DISTINCT ALUNO.Nome FROM TURMA 
+JOIN ALUNO_TURMA ON (TURMA.id = ALUNO_TURMA.id) 
+JOIN ALUNO ON (ALUNO_TURMA.aluno_id = ALUNO.id) 
+JOIN DISCIPLINA ON (TURMA.id = DISCIPLINA.id) WHERE DISCIPLINA.nome = "MATEMATICA" NOT IN 
+(
+SELECT DISTINCT ALUNO.Nome FROM TURMA 
+JOIN ALUNO_TURMA ON (TURMA.id = ALUNO_TURMA.id) 
+JOIN ALUNO ON (ALUNO_TURMA.aluno_id = ALUNO.id) 
+JOIN DISCIPLINA ON (TURMA.id = DISCIPLINA.id) WHERE DISCIPLINA.nome = "QUIMICA"
+)
