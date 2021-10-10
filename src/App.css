@@ -89,9 +89,11 @@ input{
 }
 
 ul li{
+    width: 70%;
     margin: 10px;
     margin-left: 130px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 ul li button{
