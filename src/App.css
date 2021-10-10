@@ -19,7 +19,7 @@ body{
 main{
     background: #00000054;
     align-items: center;
-    padding: 5px 40px 100% 40px;
+    padding: 5px 80px 100% 80px;
     margin-top: 20px;
     border-radius: 10px;
 }
@@ -73,6 +73,7 @@ button:active{
 }
 
 .finished{
+    
     background: none repeat scroll 0 0 #08e41a;
     border-color: #FFFFFF #ffffff #21b32d #FFFFFF;
 }
@@ -89,6 +90,14 @@ input{
 
 ul li{
     margin: 10px;
-  }
+    margin-left: 60px;
+    text-align: left;
+}
+
+ul li button{
+    right: 0;
+    margin-left: 10px;
+    text-align: right;
+}
 
 

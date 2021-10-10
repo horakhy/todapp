@@ -26,7 +26,7 @@ function TodApp() {
     const deletePrompt = (e, t) => {
         const deleteIt = window.confirm(`The note is going to be deleted`);
 
-        if(deleteIt){
+        if (deleteIt) {
             deleteItem(e, t.id);
         }
 
@@ -76,11 +76,12 @@ function TodApp() {
             {tasklist !== [] ?
                 <ul>
                     {tasklist.map((t) => (
+
                         <li className={t.isCompleted ? "crossedText" : "listitem"}>{t.value}
 
-                            <button className="finished" onClick={e => taskFinished(e, t.id)}>Finished</button>
-
-                            <button className="delete" onClick={e => deletePrompt(e, t)}>Delete</button>
+                        <button className="finished" onClick={e => taskFinished(e, t.id)}>Finished</button>
+                        <button className="delete" onClick={e => deletePrompt(e, t)}>Delete</button>
+                        
                         </li>
 
                     ))}
