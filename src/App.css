@@ -1,105 +1,85 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-}
-
-body{
+  }
+  
+  body {
     width: 95%;
     max-width: 800px;
     margin: auto;
-    background-image: linear-gradient(120deg, #2193b0  0%, #6dd5ed 100%);
+    background-image: linear-gradient(120deg, #2193b0 0%, #6dd5ed 100%);
     color: white;
     font-family: "sans-serif", sans-serif;
     min-height: 100vh;
-}
-
-
-main{
+  }
+  
+  main {
     background: #00000054;
     align-items: center;
     padding: 5px 80px 100% 80px;
     margin-top: 20px;
     border-radius: 10px;
-}
-
-h1{
+  }
+  
+  h1 {
     text-align: center;
     margin-top: 30px;
     font-style: italic;
-}
-
-.crossedText{
+  }
+  
+  .crossedText {
     color: rgba(255, 0, 0, 0.624);
     text-decoration: line-through rgba(255, 0, 0, 0.624);
-}
-
-.todo{
+  }
+  
+  .todo {
     margin-top: 25px;
     text-align: center;
-}
-
-button{
+  }
+  
+  button {
     font-size: 18px;
     margin-left: 10px;
     min-width: 70px;
     opacity: 0.85;
-    background: none repeat scroll 0 0 #66A3D2;
-    border-color: #FFFFFF #24557b #327CB5 #FFFFFF;
-    border-radius: 10px 10px 10px 10px;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 1px 1px 3px #333333;
-    color: #FFFFFF;
+    border-radius: 5px;
+    color: #ffffff;
     cursor: pointer;
     font-weight: bold;
-    padding: 5px;
+    padding: 6px;
     text-align: center;
-    text-shadow: 1px 1px 1px #000000;
-}
-
-button:hover{
+  }
+  
+  button:hover {
     opacity: 1;
-}
-
-button:active{
-    background-color: yellow;
-    
-}
-
-.add-btn{
-    background: none repeat scroll 0 0 #66A3D2;
-}
-
-.finished{
-    
-    background: none repeat scroll 0 0 #08e41a;
-    border-color: #FFFFFF #ffffff #21b32d #FFFFFF;
-}
-
-.delete{
-    background: none repeat scroll 0 0 #e6002a;
-    border-color: #FFFFFF #ffffff #b10b2a #FFFFFF;
-}
-
-input{
+  }
+  
+  .add-btn {
+    border: none;
+    background: #66a3d2;
+  }
+  
+  .finished {
+    background: #08e41a;
+    border: none;
+  }
+  
+  .delete {
+    background: #e6002a;
+    border: none;
+  }
+  
+  input {
     font-size: 15px;
-    border-radius: 8px;
-}
-
-ul li{
-    width: 70%;
-    margin: 10px;
-    margin-left: 130px;
+    border-radius: 6px;
+    padding: 8px;
+    border: none;
+  }
+  
+  ul li {
+    margin: 16px;
     text-align: left;
     word-wrap: break-word;
-}
-
-ul li button{
-    right: 0;
-    margin-left: 10px;
-    text-align: right;
-}
-
-
+    list-style-type: none;
+  }

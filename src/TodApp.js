@@ -1,94 +1,94 @@
 import React, { useState } from "react";
-//import "./TodApp.css"
 
 function TodApp() {
-    const [task, setTask] = useState("")
-    const [tasklist, setTaskList] = useState([])
+  const [task, setTask] = useState("");
+  const [tasklist, setTaskList] = useState([]);
 
-    const changeHandler = (e) => {
-        setTask(e.target.value)
-    };
-
-
-    const addTask = () => {
-        if (task !== "") {
-            const taskDetails = {
-                id: Math.floor(Math.random() * 1000),
-                value: task,
-                isCompleted: false,
-            }
-
-            setTaskList([...tasklist, taskDetails]);
-        }
-
-    };
-
-    const deletePrompt = (e, t) => {
-        const deleteIt = window.confirm(`The note is going to be deleted`);
-
-        if (deleteIt) {
-            deleteItem(e, t.id);
-        }
-
+  const addTask = () => {
+    if (task !== "") {
+      const taskDetails = {
+        id: Math.floor(Math.random() * 1000),
+        value: task,
+        isCompleted: false,
+      };
+      setTaskList((prevState) => [...prevState, taskDetails]);
     }
+    setTask("");
+  };
 
-    const deleteItem = (e, id) => {
-        // Prevents the window from refreshing
-        e.preventDefault();
-        setTaskList(tasklist.filter((t) => t.id !== id))
-    };
+  const deletePrompt = (e, task) => {
+    const deleteIt = window.confirm(
+      `The note with id ${task.id} is going to be deleted`
+    );
 
-    const taskFinished = (e, id) => {
-        e.preventDefault();
-        // Find the item's index
-        const item = tasklist.findIndex(item => item.id === id);
-
-        // copying the array into a new variable
-        const newTaskList = [...tasklist];
-
-        console.log("Testing...");
-        // edit (cross out) the text
-        // Cross it out if it's completed
-        if (tasklist[item].isCompleted !== true) {
-            newTaskList[item] = {
-                ...newTaskList[item], isCompleted: true
-            }
-        }
-
-        else {
-            newTaskList[item] = {
-                ...newTaskList[item], isCompleted: false
-            }
-        }
-        // Setting the new list as the one to be shown
-        setTaskList(newTaskList)
+    if (deleteIt) {
+      deleteItem(e, task.id);
     }
+  };
 
-    //console.log("tasklist", tasklist)
-    return (
-        <div className="todo">
-            <input type="text" name="text" id="text" required
-                onChange={(e) => changeHandler(e)} placeholder="Add task" />
+  const deleteItem = (e, id) => {
+    // Prevents the window from refreshing
+    e.preventDefault();
+    setTaskList(tasklist.filter((task) => task.id !== id));
+  };
 
-            <button className="add-btn" onClick={addTask}>Add</button>
-            <br />
+  const taskFinished = (id) => {
+    const taskToUpdate = tasklist.find((item) => item.id === id);
 
-            {tasklist !== [] ?
-                <ul>
-                    {tasklist.map((t) => (
+    const updatedTaskList = tasklist.map((task) => {
+      if (task.id === id) {
+        return { ...taskToUpdate, isCompleted: !taskToUpdate.isCompleted };
+      }
 
-                        <li className={t.isCompleted ? "crossedText" : "listitem"}>{t.value}
+      return task;
+    });
 
-                        <button className="finished" onClick={e => taskFinished(e, t.id)}>Finished</button>
-                        <button className="delete" onClick={e => deletePrompt(e, t)}>Delete</button>
-                        
-                        </li>
+    setTaskList(updatedTaskList);
+  };
 
-                    ))}
-                </ul>
-                : null}
-        </div>
-    )
+  return (
+    <div className="todo">
+      <input
+        type="text"
+        name="text"
+        id="text"
+        required
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        placeholder="Add task"
+      />
+
+      <button className="add-btn" onClick={addTask}>
+        Add
+      </button>
+      <br />
+
+      {tasklist.length > 0 ? (
+        <ul>
+          {tasklist.map((task) => (
+            <li
+              key={task.id}
+              className={task.isCompleted ? "crossedText" : null}
+            >
+              <input
+                style={{ marginRight: 16 }}
+                type="checkbox"
+                checked={task.isCompleted}
+                onChange={() => taskFinished(task.id)}
+              />
+              {task.value}
+
+              <button className="delete" onClick={(e) => deletePrompt(e, task)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ marginTop: 16 }}>Your list is empty</p>
+      )}
+    </div>
+  );
 }
 
-export default TodApp
+export default TodApp;
