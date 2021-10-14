@@ -47,41 +47,60 @@ function TodApp() {
   };
 
   return (
-    <div className="todo">
-      <input
-        type="text"
-        name="text"
-        id="text"
-        required
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="Add task"
-      />
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ alignSelf: "center", marginTop: 32 }}>
+        <input
+          type="text"
+          name="text"
+          id="text"
+          required
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="Add task"
+        />
 
-      <button className="add-btn" onClick={addTask}>
-        Add
-      </button>
+        <button className="add-btn" onClick={addTask}>
+          Add
+        </button>
+      </div>
+
       <br />
 
       {tasklist.length > 0 ? (
         <ul>
           {tasklist.map((task) => (
-            <li
-              key={task.id}
-              className={task.isCompleted ? "crossedText" : null}
-            >
-              <input
-                style={{ marginRight: 16 }}
-                type="checkbox"
-                checked={task.isCompleted}
-                onChange={() => taskFinished(task.id)}
-              />
-              {task.value}
+            <>
+              <li
+                key={task.id}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+                className={task.isCompleted ? "crossedText" : null}
+              >
+                <div>
+                  <input
+                    style={{ marginRight: 16 }}
+                    type="checkbox"
+                    checked={task.isCompleted}
+                    onChange={() => taskFinished(task.id)}
+                  />
+                  {task.value}
+                </div>
 
-              <button className="delete" onClick={(e) => deletePrompt(e, task)}>
-                Delete
-              </button>
-            </li>
+                <button
+                  className="delete"
+                  onClick={(e) => deletePrompt(e, task)}
+                >
+                  Delete
+                </button>
+              </li>
+              <div
+                style={{ height: 1, width: "100%", backgroundColor: "#eee" }}
+              />
+            </>
           ))}
         </ul>
       ) : (
