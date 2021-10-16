@@ -15,7 +15,10 @@ JOIN ALUNO ON (ALUNO_TURMA.aluno_id = ALUNO.id)
 JOIN DISCIPLINA ON (TURMA.id = DISCIPLINA.id) WHERE DISCIPLINA.nome = "MATEMATICA" OR DISCIPLINA.nome = "FISICA";
 
 4. Buscar as disciplinas que não tenham nenhuma turma.
--> SELECT DISCIPLINA.nome FROM TURMA RIGHT JOIN DISCIPLINA ON TURMA.disciplina_id = DISCIPLINA.id WHERE TURMA.disciplina_id = NULL;
+-> SELECT DISCIPLINA.* FROM DISCIPLINA
+LEFT JOIN TURMA
+	ON DISCIPLINA.id = TURMA.disciplina_id
+WHERE TURMA.disciplina_id IS NULL
 
 5. Buscar os alunos que frequentem aulas de 'MATEMATICA' exceto os que frequentem 'QUIMICA'.
 -> SELECT DISTINCT ALUNO.Nome FROM TURMA 
