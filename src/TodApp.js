@@ -89,13 +89,14 @@ function TodApp() {
                   />
                   {task.value}
                 </div>
-
-                <button
-                  className="delete"
-                  onClick={(e) => deletePrompt(e, task)}
-                >
+                <div>
+                  <button
+                    className="delete"
+                    onClick={(e) => deletePrompt(e, task)}
+                  >
                   Delete
                 </button>
+                </div>
               </li>
               <div
                 style={{ height: 1, width: "100%", backgroundColor: "#eee" }}
